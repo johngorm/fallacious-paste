@@ -13,7 +13,7 @@ Project Name: Fallacious Paste
 Project Description: Musical tour of Chicago neighborhoods
 
 
-Sketch: As a young socially-active Chicago resident interested in discovering local music scene, I want an app that will locate venunes and artists so that I can discover new artists
+Sketch: As a socially-active person in Chicago interested in discovering local music scene, I want an app that will locate venunes and artists so that I can discover new artists and the relevent info of this location
 
 
 
