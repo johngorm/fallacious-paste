@@ -13,7 +13,8 @@ Project Name: Fallacious Paste
 Project Description: Musical tour of Chicago neighborhoods
 
 
-Sketch: Users would want to find out about the history of the Chicago neighborhoods and get a sense of the musical background of their surroundings. Users will select a neighborhood, which will bring up text about that neighborhood's history. It will also load a Spotify playlist that is related to a famous musician from that neighborhood.
+Sketch: As a young socially-active Chicago resident interested in discovering local music scene, I want an app that will locate venunes and artists so that I can discover new artists
+
 
 
 API's to us: Google Maps, Spotify, Wikipedia
