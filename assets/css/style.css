@@ -18,7 +18,7 @@ body {
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #3e8e41;
+    background-color: black;
 }
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
@@ -53,4 +53,15 @@ body {
 
 .show {
     display:block;
+}
+
+#API-div {
+    background-color: white;
+    margin-right: 15px;
+}
+
+#google-map {
+    border-bottom-style: solid;
+    border-bottom-width: 5px;
+    border-bottom-color: black;
 }
