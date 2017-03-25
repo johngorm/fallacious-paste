@@ -115,6 +115,8 @@
               });
               infowindow.setContent(results[1].formatted_address);
               infowindow.open(map, marker);
+              var neighborhood = results[0].address_components[2].long_name
+              search(neighborhood)
             } else {
               window.alert('No results found');
             }
@@ -122,7 +124,10 @@
             window.alert('Geocoder failed due to: ' + status);
           }
         });
+        
       }
+
+
 
       
  $("#test").on("click", function(event) {
@@ -142,6 +147,48 @@
 
       }
 });
+
+ // ********
+
+ function handleAPILoaded() {
+  $('.clickDiv').attr('hidden', false);
+}
+
+var videoIDArray = [];
+var maxVids = 10;
+
+$('.clickDiv').on('click',function() {
+  $('#search-container').empty();
+  search(this.innerText);
+
+})
+
+
+function search(searchTerm){
+ console.log(searchTerm,"name")
+  
+
+  // request.execute(function(response) {
+  //   videoIDArray = [];
+  //   for(var ii = 0; ii < maxVids; ii++){
+  //     videoIDArray.push(response.result.items[ii].id.videoId);
+  //   }
+
+  //   var randVideoID = videoIDArray[Math.floor(Math.random()*10)];
+  //   postVideo(randVideoID);
+  // })
+}
+
+
+function postVideo(videoID){
+  var videoURL = 'https://www.youtube.com/embed/' + videoID;
+  var ytVideo = $('<iframe width="560" height="315" frameborder="0" allowfullscreen> </iframe>')
+                  .prop('src',videoURL)
+                  .appendTo('#search-container');
+  return;
+                    
+
+}
     </script>
 
 
