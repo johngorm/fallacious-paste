@@ -1,4 +1,3 @@
-// After the API loads, call a function to enable the search box.
 function handleAPILoaded() {
   $('.clickDiv').attr('hidden', false);
 }
@@ -8,7 +7,13 @@ var maxVids = 10;
 
 $('.clickDiv').on('click',function() {
   $('#search-container').empty();
-  var val = 'Chicago ' + this.innerText;
+  search(this.innerText);
+
+})
+
+
+function search(searchTerm){
+  var val = 'Chicago ' + searchTerm;
   var request = gapi.client.youtube.search.list({
     q: encodeURIComponent(val).replace(/%20/g, '+'),
     maxResults: maxVids,
@@ -18,6 +23,7 @@ $('.clickDiv').on('click',function() {
   })
 
   request.execute(function(response) {
+    videoIDArray = [];
     for(var ii = 0; ii < maxVids; ii++){
       videoIDArray.push(response.result.items[ii].id.videoId);
     }
@@ -25,8 +31,7 @@ $('.clickDiv').on('click',function() {
     var randVideoID = videoIDArray[Math.floor(Math.random()*10)];
     postVideo(randVideoID);
   })
-
-})
+}
 
 
 function postVideo(videoID){
@@ -37,15 +42,4 @@ function postVideo(videoID){
   return;
                     
 
-}
-
-
-function init() {
-  gapi.client.setApiKey('AIzaSyAu70PyyTh926FvpI8pjJsLAVU5QWJaA2A');
-  gapi.client.load('youtube', 'v3', function(){
-    //YT api is read
-     handleAPILoaded();
-  });
- 
-    
 }
