@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<title></title>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="jumbotron">
+	            	<h1 class="text-center"><strong>Chicago Music</strong></h1>      		 
+	          	</div>
+	    	</div>
+	    </div>
+
+		<div class="row">
+			<div class="col-lg-2 col-xs-12">
+				<div class="dropdown">
+  					<button onclick="dropdownList()" class="dropbtn">Neighborhoods</button>
+  					<div id="neighborhoods" class="neigh-list">
+  					</div>
+				</div>
+			</div>
+
+			<div id="API-div" class="col-lg-9 col-xs-12">
+				<div id="google-map" class="row">
+					<p>Map</p>
+				</div>
+					
+				<div id="youtube-vid" class="row">
+					<p>Youtube</p>
+				</div>
+			</div>
+
+    	</div>
+
+<script src="assets/javascript/dropdown.js"></script>
+</body>
+</html>
