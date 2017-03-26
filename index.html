@@ -6,12 +6,12 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script src="https://code.jquery.com/jquery.js"></script>
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    
-	<!-- <script src="googleAPItest.js"></script> -->
-    
-	<title></title>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+	<title>Chicago Neighborhoods</title>
+
 	<style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -59,49 +59,40 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="jumbotron">
-	            	<h1 class="text-center"><strong>Chicago Music</strong></h1>      		 
+	            	<h1 class="text-center"><strong>Chicago Neighborhoods</strong></h1>      
 	          	</div>
 	    	</div>
 	    </div>
 		
-		
-		
-		
-	<button id="test">test</button>
-    <div id="map"></div>
-		
-		 <div id="buttons">
-      <label> <input id="query" value='cats' type="text"/><button id="search-button" disabled onclick="search()">Search</button></label>
-    </div>
-    <div id="search-container">
-    </div>
-   
-		
-		
-		
 
 		<div class="row">
-			<div class="col-lg-2 col-xs-12">
-				<div class="dropdown">
-  					<button onclick="dropdownList()" class="dropbtn">Neighborhoods</button>
-  					<div id="neighborhoods" class="neigh-list">
-  					</div>
-				</div>
-			</div>
+      <div class="col-lg-2 col-xs-12">
+        <div id="buttons">
+		      <label> <input id="query" value='' type="text"/><button id="search-button" disabled onclick="search()">Search</button></label>
+        </div>
+        <div class="dropdown">
+            <button onclick="dropdownList()" class="dropbtn">Neighborhoods</button>
+            <div id="neighborhoods" class="neigh-list">
+            </div>
+        </div>
+      </div>
 
-			<div id="google-map" class="API-div col-lg-4 col-xs-11">
-				<p>Map</p>
-			</div>
-					
-			<div id="youtube-vid" class="API-div col-lg-4 col-xs-11">
-				<p>Youtube</p>
-			</div>
-		</div>
+      <div id="map" class="API-div col-lg-4 col-xs-11">
+        <p>Map</p>
+      </div>
+          
+      <div id="search-container"" class="API-div col-lg-4 col-xs-11">
+        <p>Youtube</p>
+      </div>
+    </div>
 
     </div>
 
-	<script src="assets/javascript/dropdown.js"></script>
-	<script src="search.js"></script>
-	<script src="https://apis.google.com/js/client.js?onload=init"></script>
+
+  <script src="assets/javascript/dropdown.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="search.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+
 </body>
 </html>
