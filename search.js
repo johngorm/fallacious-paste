@@ -12,6 +12,13 @@ $('.clickDiv').on('click',function() {
 })
 
 
+$('.neigh-list').delegate('a', 'click',function(e) {
+  e.preventDefault();
+  $('#search-contaier').empty();
+  search(this.innerText);
+});
+
+
 function search(searchTerm){
   var val = 'Chicago ' + searchTerm;
   var request = gapi.client.youtube.search.list({
@@ -19,6 +26,7 @@ function search(searchTerm){
     maxResults: maxVids,
     order: 'relevance',
     type: 'video',
+    safeSearch: 'moderate',
     part: 'snippet'
   })
 
