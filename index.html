@@ -118,7 +118,7 @@
 
   <!-- Modal Window -->
   <div id="id01" class="modal">
-    <form class="modal-content animate" action="/action_page.php">
+    <form class="modal-content animate">
       <div class="imgcontainer">
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       </div>
@@ -128,12 +128,12 @@
         <input type="text" placeholder="Enter Username" name="uname" id='uname' required>
 
         
-        <button type="submit">Login</button>
+        <button type="submit" onclick=saveUserName()>Login</button>
         <input type="checkbox" checked="checked"> Remember me
       </div>
 
       <div class="container" style="background-color:#f1f1f1">
-        <button type="button" onclick=saveUserName() class="cancelbtn">Cancel</button>
+        <button type="button" class="cancelbtn">Cancel</button>
         <span class="psw">Forgot <a href="#">password?</a></span>
       </div>
     </form>
