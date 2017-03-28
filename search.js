@@ -2,6 +2,8 @@
 function saveUserName(){
   userName = $('#uname').val();
   localStorage.setItem('userName', userName);
+    $('#id01').css('display', 'none');
+
   
 }
 
