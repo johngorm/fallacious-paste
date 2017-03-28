@@ -3,8 +3,8 @@ body {
 }
 
 
-#jumbotron { 
-    background-color: yellow;
+.jumbotron { 
+    font-family: 'Squada One', cursive;
 }
 
 .dropbtn {
