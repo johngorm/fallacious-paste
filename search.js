@@ -1,3 +1,10 @@
+
+function saveUserName(){
+  userName = $('#uname').val();
+  localStorage.setItem('userName', userName);
+  
+}
+
 function handleAPILoaded() {
   $('.neigh-list').attr('hidden', false);
 }
