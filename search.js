@@ -1,5 +1,5 @@
 function handleAPILoaded() {
-  $('.clickDiv').attr('hidden', false);
+  $('.neigh-list').attr('hidden', false);
 }
 
 var videoIDArray = [];
@@ -26,7 +26,6 @@ function search(searchTerm){
     maxResults: maxVids,
     order: 'relevance',
     type: 'video',
-    safeSearch: 'moderate',
     part: 'snippet'
   })
 
@@ -50,4 +49,14 @@ function postVideo(videoID){
   return;
                     
 
+}
+
+function init() {
+  gapi.client.setApiKey('AIzaSyAu70PyyTh926FvpI8pjJsLAVU5QWJaA2A');
+  gapi.client.load('youtube', 'v3', function(){
+    //YT api is read
+     handleAPILoaded();
+  });
+ 
+    
 }
