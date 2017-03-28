@@ -11,48 +11,6 @@
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
 	<title>Chicago Neighborhoods</title>
-
-	<style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #google-map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #floating-panel {
-        position: absolute;
-        top: 10px;
-        left: 25%;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-        text-align: center;
-        font-family: 'Roboto','sans-serif';
-        line-height: 30px;
-        padding-left: 10px;
-      }
-      #floating-panel {
-        position: absolute;
-        top: 5px;
-        left: 50%;
-        margin-left: -180px;
-        width: 350px;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-      }
-      #latlng {
-        width: 225px;
-      }
-    </style>
-
 </head>
 <body>
 	<div class="container-fluid">
@@ -63,7 +21,6 @@
 	          	</div>
 	    	</div>
 	    </div>
-		
 
 		<div class="row">
       <div class="col-lg-2 col-xs-12">
@@ -77,11 +34,11 @@
         </div>
       </div>
 
-      <div id="map" class="API-div col-lg-4 col-xs-11">
+      <div id="google-map" class="API-div col-lg-4 col-xs-11">
         <p>Map</p>
       </div>
           
-      <div id="search-container"" class="API-div col-lg-4 col-xs-11">
+      <div id="search-container" class="API-div col-lg-4 col-xs-11">
         <p>Youtube</p>
       </div>
     </div>
