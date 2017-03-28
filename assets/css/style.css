@@ -56,6 +56,10 @@ body {
     display:block;
 }
 
+#google-map {
+        height: 500px;
+      }
+
 .API-div {
     background-color: white;
     margin-right: 15px;
