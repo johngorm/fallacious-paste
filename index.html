@@ -1,40 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
-	<title>Chicago Neighborhoods</title>
+  <title>Chicago Neighborhoods</title>
+
+  <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        width: 350px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
+      #latlng {
+        width: 225px;
+
+      }
+      /*Modal CSS*/
+      
+      
+      .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      padding-top: 60px;
+      }
+
+  /* Modal Content/Box */
+      .modal-content {
+          background-color: #fefefe;
+          margin: 5px auto; /* 15% from the top and centered */
+          border: 1px solid #888;
+          width: 80%; /* Could be more or less, depending on screen size */
+      }
+
+      /* The Close Button */
+      .close {
+          /* Position it in the top right corner outside of the modal */
+          position: absolute;
+          right: 25px;
+          top: 0; 
+          color: #000;
+          font-size: 35px;
+          font-weight: bold;
+      }
+
+      /* Close button on hover */
+      .close:hover,
+      .close:focus {
+          color: red;
+          cursor: pointer;
+      }
+
+      /* Add Zoom Animation */
+      .animate {
+          -webkit-animation: animatezoom 0.6s;
+          animation: animatezoom 0.6s
+      }
+
+      @-webkit-keyframes animatezoom {
+          from {-webkit-transform: scale(0)} 
+          to {-webkit-transform: scale(1)}
+      }
+
+      @keyframes animatezoom {
+          from {transform: scale(0)} 
+          to {transform: scale(1)}
+      }
+        
+    </style>
+
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="jumbotron">
-	            	<h1 class="text-center"><strong>Chicago Neighborhoods</strong></h1>      
-	          	</div>
-	    	</div>
-	    </div>
 
-		<div class="row">
+  <!-- Modal Window -->
+  <div id="id01" class="modal">
+    <form class="modal-content animate" action="/action_page.php">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      </div>
+
+      <div class="container">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" id='uname' required>
+
+        
+        <button type="submit">Login</button>
+        <input type="checkbox" checked="checked"> Remember me
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick=saveUserName() class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+  </div>
+  <!-- End of Modal -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="jumbotron">
+                <h1 class="text-center"><strong>Chicago Neighborhoods</strong></h1>      
+              </div>
+        </div>
+      </div>
+    
+
+    <div class="row">
       <div class="col-lg-2 col-xs-12">
         <div id="buttons">
-		      <label> <input id="query" value='' type="text"/><button id="search-button" disabled onclick="search()">Search</button></label>
+          <label> <input id="query" value='' type="text"/><button id="search-button" disabled onclick="search()">Search</button></label>
         </div>
         <div class="dropdown">
-            <button onclick="dropdownList()" class="dropbtn">Neighborhoods</button>
-            <div id="neighborhoods" class="neigh-list">
+            <button onclick="dropdownList()" class="dropbtn" >Neighborhoods</button>
+            <div id="neighborhoods" class="neigh-list" hidden>
             </div>
         </div>
       </div>
 
-      <div id="google-map" class="API-div col-lg-4 col-xs-11">
+      <div id="map" class="API-div col-lg-4 col-xs-11">
         <p>Map</p>
       </div>
           
@@ -45,15 +172,32 @@
 
     </div>
 
-
+  <script>
+    //Show modal window if new user
+    $(document).ready(function() {
+      if(!localStorage.getItem('userName')){
+        document.getElementById('id01').style.display='block';
+      }
+    });
+      
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDB3oO0W-easjAy-cE8qACAjaKOWUpbsbs",
+    authDomain: "chicago-neighborhoods.firebaseapp.com",
+    databaseURL: "https://chicago-neighborhoods.firebaseio.com",
+    storageBucket: "chicago-neighborhoods.appspot.com",
+    messagingSenderId: "101601892763"
+  };
+  firebase.initializeApp(config);
+  var database = firebase.database();
+</script>  
   <script src="assets/javascript/dropdown.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="search.js"></script>
+    <script src="assets/javascript/youtube_search.js"></script>
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
-    <script src="assets/javascript/api.js"></script>
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFrCsO1mlS2_ZaJc2XxG4QE2vKFyW4lyg">
-    </script>
 
 </body>
 </html>
