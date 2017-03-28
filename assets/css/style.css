@@ -68,6 +68,10 @@ body {
     border-bottom-color: black
 }
 
+.neighborhood {
+    width: 160px;
+}
+
 @media screen and (max-width: 640px) {
     .API-div {
         margin-left: 15px;
