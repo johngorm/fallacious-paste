@@ -14,7 +14,7 @@ $('.clickDiv').on('click',function() {
 
 $('.neigh-list').delegate('button', 'click',function(e) {
   e.preventDefault();
-  $('#search-contaier').empty();
+  $('#search-container').empty();
   search(this.innerText);
 });
 
