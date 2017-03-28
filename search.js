@@ -12,7 +12,7 @@ $('.clickDiv').on('click',function() {
 })
 
 
-$('.neigh-list').delegate('a', 'click',function(e) {
+$('.neigh-list').delegate('button', 'click',function(e) {
   e.preventDefault();
   $('#search-contaier').empty();
   search(this.innerText);
