@@ -16,6 +16,16 @@ body {
     font-size: 16px;
     border: none;
     cursor: pointer;
+    width: 225px;
+}
+
+#shuffle {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 225px;
 }
 
 /* Dropdown button on hover & focus */
@@ -74,16 +84,47 @@ body {
     width: 160px;
 }
 
+#query {
+    width: 225px;
+}
+
+#search-button {
+    width: 90px;
+}
+
 @media screen and (max-width: 640px) {
     .API-div {
         margin-left: 15px;
     }
 
-    button {
-    width: 500px;
-    margin: 0 auto;
+    .jumbotron {
+        padding-top: 100px;
+    }
+
+    #shuffle {
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    .dropbtn {
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    #query {
+        width: 390px;
+        margin: 0 auto;
+    }
+
+    #search-button {
+        width: 90px;
+        margin: 0 auto;
     }
 
     .neigh-list {
+        width: 500px;
+    }
+
+    .neighborhood {
         width: 500px;
     }
