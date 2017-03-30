@@ -78,14 +78,16 @@
 	"Uptown"
 ];
 
-	for (i=0; i<neighborhoodList.length; i++) {
-	var neighName = $("<a>");
+for (i=0; i<neighborhoodList.length; i++) {
+	var neighName = $("<button>");
 	neighName.attr("href", "#");
+	neighName.attr("value", neighborhoodList[i])
+	neighName.attr("class", "neighborhood btn btn-primary")
 	neighName.prepend(neighborhoodList[i]);
 
 	$("#neighborhoods").append(neighName);
 }
-
+	
 
 function dropdownList(){
 

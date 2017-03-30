@@ -1,45 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<title></title>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Squada+One" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script> 
+
+  <title>Chicago Neighborhoods</title>
 
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="jumbotron">
-	            	<h1 class="text-center"><strong>Chicago Music</strong></h1>      		 
-	          	</div>
-	    	</div>
-	    </div>
 
-		<div class="row">
-			<div class="col-lg-2 col-xs-12">
-				<div class="dropdown">
-  					<button onclick="dropdownList()" class="dropbtn">Neighborhoods</button>
-  					<div id="neighborhoods" class="neigh-list">
-  					</div>
-				</div>
-			</div>
+  
 
-			<div id="google-map" class="API-div col-lg-4 col-xs-11">
-				<p>Map</p>
-			</div>
-					
-			<div id="youtube-vid" class="API-div col-lg-4 col-xs-11">
-				<p>Youtube</p>
-			</div>
-		</div>
+  <div class="container-fluid">
+    
+    <div class="row content">
+         <!-- Header -->
+      <nav class="headerBanner navbar navbar-default navbar-fixed-top">
+          
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html"><h1 id="title" class="text-center">CHICAGO</h1></a>
+          <p id="tag-line">Don't be shy, be CHI</p>
+        </div>
+
+        <div class=" collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="neighName text-center"></div> 
+        </div>
+     
+      </nav>
+       
+      <form class="form-inline text-center" >
+         <div class="form-group">
+           <label for="login">Login:</label>
+               <input type="login" class="form-control" id="login">
+                     </div>
+                         <div class="form-group">
+                           <label for="pwd">Password:</label>
+                           <input type="password" class="form-control" id="pwd">
+                         </div>
+                     <div class="checkbox">
+               <label><input type="checkbox"> Remember me</label>
+             </div>
+         <button type="button" class="btn btn-default" onclick='firebaseAdd()'>Submit</button>
+    </form>
+
+      <div id="results" class="col-md-offset-1">
+        <div id="google-map" class="API-div col-md-5 "></div>
+        <div id="search-container" class="API-div col-md-5"></div>
+      </div>
 
     </div>
+    
 
-<script src="assets/javascript/dropdown.js"></script>
+
+  </div>
+
+  <!-- <div class="col-md-3">
+            <label><input id="query" value='' type="text"/><button id="search-button" class="glyphicon glyphicon-filter text-center" disabled onclick="search()"></button></label>
+          </div> -->
+
+    <footer class="footer">
+    <div class="container-fluid">
+  
+      <div class="row">
+        <div class="col-12-md">
+          
+          <div class="col-lg-3 col-md-3 col-xs-3">
+            <div class="btn btn-primary text-center glyphicon glyphicon-map-marker glyph"></div>
+          </div>
+
+          <div class="col-lg-3 col-md-3 col-xs-3">
+            <div class="btn btn-primary dropup text-center glyph">
+                  <button onclick="dropdownList()" class="dropbtn btn btn-primary glyphicon glyphicon-align-justify" ></button>
+                  <div id="neighborhoods" class="neigh-list" hidden></div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-3 col-xs-3">    
+              <div id="shuffle" class="btn btn-primary glyphicon glyphicon-random text-center glyph"></div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
+          </div>
+
+          <div class="col-lg-3 col-md-3 col-xs-3">
+              <div class="btn btn-primary text-center glyphicon glyphicon-circle-arrow-down glyph"></div>
+          </div>
+      </div>
+
+      </div>
+  </footer>
+ 
+ 
+
+    <script src="assets/javascript/dropdown.js"></script>
+    <script src="search.js"></script>
+    <script src="assets/javascript/api.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFrCsO1mlS2_ZaJc2XxG4QE2vKFyW4lyg">
+    </script>
+    
 </body>
 </html>
