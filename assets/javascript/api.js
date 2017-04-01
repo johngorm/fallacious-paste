@@ -1,5 +1,50 @@
 $(document).ready(function(){
 
+
+//   $(".test").on("click", function(){
+//     console.log("hello");
+//   })
+//     console.log("bye")
+
+//     $('.neigh-list').delegate('.neighborhood', 'click',function(e) {
+  
+//   e.preventDefault();
+//   $('#search-container').empty();
+//    // var flag = false;
+//    //  var neighborhood = this.innerHTML;
+//    //  localneigh = JSON.parse(localStorage.getItem('neighborhoods'));
+//    //  console.log(localneigh);
+//    //  if (localneigh !== 'blank' && localneigh) {
+//    //      for (ii = 0; ii <= localneigh.length; ii++) {
+//    //          if (localneigh[ii] === neighborhood) {
+//    //              flag = true; //set flag is neighborhood clicked is already in database array
+//    //              break;
+//    //          }
+
+//    //      }
+
+
+//    //  }
+//    //  if (flag === false) {
+//    //      neighArray.push(neighborhood);
+//    //      userRef = ref.child(localStorage.getItem('userId'));
+//    //      userRef.set({
+//    //          neighborhoods: neighArray
+//    //      });
+
+
+
+//    //      userRef.on('value', function(snapshot) {
+//    //          localStorage.setItem('neighborhoods', JSON.stringify(snapshot.val()['neighborhoods']));
+//    //      })
+//    //  }
+
+// console.log(this.innerText)
+//   search(this.innerText +);
+// });
+
+
+
 var latlng = {};
 
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -169,19 +214,21 @@ var latlng = {};
         var geocoder = new google.maps.Geocoder();
        
         var shuffNeigh =  (neighborhoodList[Math.floor(Math.random() * neighborhoodList.length)]);
+        var address = "chicago " + shuffNeigh
+        
+        $(".neighName").html(shuffNeigh);
 
-        geocodeAddress(geocoder, map, shuffNeigh);
-        search(shuffNeigh);
+        geocodeAddress(geocoder, map, address);
+        search(address);
      
-        function geocodeAddress(geocoder, resultsMap, shuffNeigh) {
+        function geocodeAddress(geocoder, resultsMap, address) {
 
-        geocoder.geocode({'address': shuffNeigh}, function(results, status) {
+        geocoder.geocode({'address': address}, function(results, status) {
           
 
           if (status === 'OK') {
 
-            var neighName = shuffNeigh;
-            $(".neighName").html(neighName);
+            
 
             resultsMap.setCenter({lat: 41.8781, lng: -87.669});
             
@@ -213,7 +260,8 @@ var latlng = {};
               };
 
               var overlayOpts = {
-                opacity:.6
+                opacity:10
+
               }
 
               historicalOverlay = new google.maps.GroundOverlay(
@@ -228,6 +276,29 @@ var latlng = {};
         });
       }
   });
+
+ $("#myLocation").on("click", function(event) {
+
+  event.preventDefault();
+  var latlng = {};
+
+      navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          var map = new google.maps.Map(document.getElementById('google-map'), {
+          zoom: 10,
+          center: {lat: 41.8781, lng: -87.669}
+          });
+          var geocoder = new google.maps.Geocoder;
+          var infowindow = new google.maps.InfoWindow;
+
+          latlng = pos
+
+          geocodeLatLng(geocoder, map, infowindow);
+      })
+ });
  
 });
     

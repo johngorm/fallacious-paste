@@ -21,85 +21,93 @@
 
   <div class="container-fluid">
     
-    <div class="row content">
-         <!-- Header -->
-      <nav class="headerBanner navbar navbar-default navbar-fixed-top">
-          
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html"><h1 id="title" class="text-center">CHICAGO</h1></a>
-          <p id="tag-line">Don't be shy, be CHI</p>
-        </div>
+    <div class="row">
 
-        <div class=" collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <div class="neighName text-center"></div> 
-        </div>
-     
-      </nav>
+      <!-- Header -->
+      <div class="col-lg-12 col-md-12 col-xs-12">
+        <nav id="header"  class="navbar navbar-default navbar-fixed-top">
+            
+          <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"><h1 id="title" class="text-center">beCHI</h1></a>
+          </div>
+
+          <div class="neighNameDiv collapse navbar-collapse col-md-12" id="bs-example-navbar-collapse-1">
+            <div class="neighName text-center"></div> 
+          </div>
        
-      <form class="form-inline text-center" >
-         <div class="form-group">
-           <label for="login">Login:</label>
-               <input type="login" class="form-control" id="login">
-                     </div>
-                         <div class="form-group">
-                           <label for="pwd">Password:</label>
-                           <input type="password" class="form-control" id="pwd">
-                         </div>
-                     <div class="checkbox">
-               <label><input type="checkbox"> Remember me</label>
-             </div>
-         <button type="button" class="btn btn-default" onclick='firebaseAdd()'>Submit</button>
-    </form>
-
-      <div id="results" class="col-md-offset-1">
-        <div id="google-map" class="API-div col-md-5 "></div>
-        <div id="search-container" class="API-div col-md-5"></div>
+        </nav>
       </div>
-
     </div>
-    
 
+    <!-- Form -->
+    <div class="row"> 
+      <div class="col-lg-12 col-md-12 col-xs-12">
+        <form class="form-inline text-center" >
+           <div class="form-group">
+            <label for="login">Login:</label>
+            <input type="login" class="form-control" id="login">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd">
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
+          </div>
+          <button type="button" class="btn btn-default" onclick='firebaseAdd()'>Submit</button>
+        </form>
+      </div>
+    </div>
 
-  </div>
+    <!-- Results -->
+    <div class="row">
+       <div class="col-lg-12 col-md-12 col-xs-12">
+        <div id="results" class="col-md-offset-1">
+          <div id="google-map" class="API-div col-md-5 "></div>
+          <div id="search-container" class="API-div col-md-5"></div>
+        </div>
+      </div>
+    </div>
 
   <!-- <div class="col-md-3">
             <label><input id="query" value='' type="text"/><button id="search-button" class="glyphicon glyphicon-filter text-center" disabled onclick="search()"></button></label>
           </div> -->
+    <div class="row">
 
-    <footer class="footer">
-    <div class="container-fluid">
-  
-      <div class="row">
-        <div class="col-12-md">
-          
+      <div class="col-lg-12 col-md-12 col-xs-12">
+        
+        <!-- Icons -->
+        <footer>
+
+          <div id="neighborhoods" class="col-lg-12 col-md-12 col-xs-12 neigh-list" hidden></div>
           <div class="col-lg-3 col-md-3 col-xs-3">
-            <div class="btn btn-primary text-center glyphicon glyphicon-map-marker glyph"></div>
+            <div id="myLocation" class="btn btn-primary text-center glyphicon glyphicon-map-marker glyph"></div>
           </div>
 
           <div class="col-lg-3 col-md-3 col-xs-3">
-            <div class="btn btn-primary dropup text-center glyph">
-                  <button onclick="dropdownList()" class="dropbtn btn btn-primary glyphicon glyphicon-align-justify" ></button>
-                  <div id="neighborhoods" class="neigh-list" hidden></div>
+            <div onclick="dropdownList()" class="dropbtn btn btn-primary dropup text-center glyph glyphicon glyphicon-align-justify">
             </div>
           </div>
           
           <div class="col-lg-3 col-md-3 col-xs-3">    
               <div id="shuffle" class="btn btn-primary glyphicon glyphicon-random text-center glyph"></div>
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
           </div>
 
           <div class="col-lg-3 col-md-3 col-xs-3">
-              <div class="btn btn-primary text-center glyphicon glyphicon-circle-arrow-down glyph"></div>
-          </div>
+              <div class="btn btn-primary text-center glyphicon glyphicon-filter glyph"></div>
+             <!--  <button class="test">test</button> -->
+          </div>           
+               
+        </footer>
       </div>
-
-      </div>
-  </footer>
+    </div>
+     
+  </div>
  
  
 
     <script src="assets/javascript/dropdown.js"></script>
-    <script src="search.js"></script>
+    <script src="assets/javascript/search.js"></script>
     <script src="assets/javascript/api.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+<body>
+
+
+<button class ="2" value="music">music</button>
+<button class ="2" value="test2">test2</button>
+<button class ="2" value="test3">test3</button>
+<button class ="2" value="test4">test4</button>
+
+<button class ="1" value="uptown">uptown</button>
+<button class ="1" value="englewood">englewood</button>
+<button class ="1" value="hyde park">hyde park</button>
+
+<button class ="1" value="loop">loop</button>
+
+
+
+<script>
+
+
+  
+var neigh = $(".1").on("click", function(){
+
+    var neighborhood = ""
+    var neighborhood = $(this).attr("value");
+    search(neigh);
+
+    
+    console.log("neighborhood:", neighborhood)
+
+    var hey = $(".2").on("click", function(){
+    var filterTerm = $(this).attr("value");
+    console.log("filterTerm:", filterTerm)
+
+    search(neighborhood, filterTerm);
+    })
+
+    function search(neigh, filter){
+      
+      var val = 'Chicago ' + neigh + filter;
+      console.log("search:", neighborhood, filter)
+    }
+ })
+    
+  
+
+
+</script>
+
+</body>
+</html>
+
+
